@@ -1,0 +1,20 @@
+{
+  "01d" : "sunny",
+  "01n" : "clear-night",
+  "02d" : "partly-cloudy",
+  "02n" : "partly-cloudy-night",
+  "03d" : "cloudy-clear-at-times",
+  "03n" : "cloudy-clear-at-times-night",
+  "04d" : "cloudy",
+  "04n" : "cloudy",
+  "09d" : "heavy-rain",
+  "09n" : "heavy-rain",
+  "10d" : "rain",
+  "10n" : "rain",
+  "11d" : "rain-thunderstorm",
+  "11n" : "rain-thunderstorm",
+  "13d" : "blizzard",
+  "13n" : "blizzard",
+  "50d" : "fog",
+  "50n" : "fog"
+}
