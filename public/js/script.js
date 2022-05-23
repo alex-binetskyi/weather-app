@@ -42,7 +42,6 @@ form.addEventListener('submit', (e) => {
       } else {
         forecastContainer.classList.add('forecast--rendered');
         messageOutput.remove();
-        console.log('data', data);
         renderTemplates(data);
       }
     })
