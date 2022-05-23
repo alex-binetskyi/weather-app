@@ -20,44 +20,44 @@ hbs.registerPartials(partialPath)
 app.use(express.static(publicDirectoryPath))
 
 app.get('', (req, res) => {
-    res.render('index', {
-        title: 'WeatherApp',
-        name: 'Alex Binetskyi'
-    })
+	res.render('index', {
+		title: 'WeatherApp',
+		name: 'Alex Binetskyi'
+	})
 })
 
 app.get('/weather', (req, res) => {
-    if(!req.query.address) {
-        return res.send({
-            error: 'You have to provide an address.'
-        })
-    }
+	if(!req.query.address) {
+		return res.send({
+			error: 'You have to provide an address.'
+		})
+	}
 
     geocode(req.query.address, (error, location) => {
 		if(error) {
-            return res.send({
-                error: error
-            })
-        }
+			return res.send({
+				error: error
+			})
+		}
 			
 		forecast(location, (error, data) => {
-            if(error) {
-                return res.send({
-                    error: error
-                })		
-            }
+			if(error) {
+				return res.send({
+					error: error
+				})		
+			}
 
-            data.forecast.current.weather[0].icon = icons[data.forecast.current.weather[0].icon];
+			data.forecast.current.weather[0].icon = icons[data.forecast.current.weather[0].icon];
 
-            data.forecast.hourly.forEach(obj => {
-                obj.weather[0].icon = icons[obj.weather[0].icon]
-            });
+			data.forecast.hourly.forEach(obj => {
+				obj.weather[0].icon = icons[obj.weather[0].icon]
+			});
 
-            data.forecast.daily.forEach(obj => {
-                obj.weather[0].icon = icons[obj.weather[0].icon]
-            });
+			data.forecast.daily.forEach(obj => {
+				obj.weather[0].icon = icons[obj.weather[0].icon]
+			});
 
-            res.send(data)
+			res.send(data)
 		})
 	})
 })
