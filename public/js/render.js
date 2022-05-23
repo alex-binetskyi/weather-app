@@ -5,6 +5,23 @@ function renderAlert(data) {
     return
   }
 
+  data.alerts.forEach(function(item, index) {
+    data.alerts.forEach(function(verifiableItem, verifiableIndex) {
+      if(index !== verifiableIndex &&
+        item.tags[0] === verifiableItem.tags[0] && 
+        item.start === verifiableItem.start &&
+        item.end === verifiableItem.end) {
+          if(item.hasOwnProperty('description') && item.description.length) {
+            data.alerts.splice(verifiableIndex, 1);
+          } else if(verifiableItem.hasOwnProperty('description') && verifiableItem.description.length) {
+            data.alerts.splice(index, 1);
+          } else {
+            data.alerts.splice(verifiableIndex, 1);
+          }
+      }
+    });
+  });
+
   let alerts = [];
   data.alerts.forEach(alert => {
     const startTime = new Date((alert.start + Number(new Date().getTimezoneOffset())*60 + data.timezone_offset) * 1000);
