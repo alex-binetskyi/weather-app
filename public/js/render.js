@@ -1,7 +1,6 @@
 let forecastContainer = document.querySelector('.forecast');
 
 function renderAlert(data) {
-
   if(!data.hasOwnProperty('alerts')) {
     return
   }
@@ -116,7 +115,7 @@ function rendeChartTemplate(data, callback) {
   section.innerHTML = `
   <h2 class="visually-hidden">Forecast chart for next 24 hours</h2>
   <div class="forecast-chart__inner">
-    <canvas id="forecast-24h" width="960" height="180"></canvas>
+    <canvas id="forecast-24h" width="928" height="174"></canvas>
   </div>
   `;
   forecastContainer.append(section);
